@@ -1,5 +1,5 @@
 # Brand
-PRODUCT_BRAND ?= simpleaosp
+PRODUCT_BRAND ?= twisted
 
 # Local path for prebuilts
 LOCAL_PATH:= vendor/twisted/prebuilts/common/system
@@ -53,3 +53,6 @@ PRODUCT_COPY_FILES += \
 # Bootanimation support
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/media/bootanimation.zip:system/media/bootanimation.zip
+
+# Squisher Location
+SQUISHER_SCRIPT := vendor/optipop/tools/squisher
