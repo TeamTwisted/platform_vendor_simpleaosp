@@ -2,7 +2,7 @@
 PRODUCT_BRAND ?= simpleaosp
 
 # Local path for prebuilts
-LOCAL_PATH:= vendor/simpleaosp/prebuilts/common/system
+LOCAL_PATH:= vendor/twisted/prebuilts/common/system
 
 # Common build prop overrides 
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -22,7 +22,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.facelock.use_intro_anim=false
 
 # Common overlays
-PRODUCT_PACKAGE_OVERLAYS += vendor/simpleaosp/overlays/common
+PRODUCT_PACKAGE_OVERLAYS += vendor/twisted/overlays/common
 
 # Needed Packages
 PRODUCT_PACKAGES += \

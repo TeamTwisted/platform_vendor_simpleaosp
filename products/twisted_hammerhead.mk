@@ -2,7 +2,7 @@
 $(call inherit-product, device/lge/hammerhead/full_hammerhead.mk)
 
 # Inherit common product files
-$(call inherit-product, vendor/simpleaosp/configs/common.mk)
+$(call inherit-product, vendor/twisted/configs/common.mk)
 
 # Setup device specific product configuration
 PRODUCT_NAME := twisted_hammerhead
