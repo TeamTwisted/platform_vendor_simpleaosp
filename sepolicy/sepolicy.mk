@@ -4,7 +4,7 @@
 #
 
 BOARD_SEPOLICY_DIRS += \
-    vendor/simpleaosp/sepolicy
+    vendor/twisted/sepolicy
 
 BOARD_SEPOLICY_UNION += \
 service_contexts \

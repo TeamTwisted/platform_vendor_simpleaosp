@@ -55,4 +55,4 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/media/bootanimation.zip:system/media/bootanimation.zip
 
 # Squisher Location
-SQUISHER_SCRIPT := vendor/optipop/tools/squisher
+SQUISHER_SCRIPT := vendor/twisted/tools/squisher
