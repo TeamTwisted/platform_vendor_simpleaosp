@@ -30,9 +30,7 @@ PRODUCT_PACKAGE_OVERLAYS += vendor/twisted/overlays/common
 # Needed Packages
 PRODUCT_PACKAGES += \
 LockClock \
-Launcher3 \
-ScreenRecorder \
-libscreenrecorder
+Launcher3
 
 # Proprietary latinime lib needed for swyping
 PRODUCT_COPY_FILES += \
