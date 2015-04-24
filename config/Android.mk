@@ -23,4 +23,4 @@
 LOCAL_PATH := $(call my-dir)
 
 # Include OptiPop common configuration
-include vendor/optipop/config/uber.mk
+include vendor/twisted/config/uber.mk
