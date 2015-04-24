@@ -23,10 +23,15 @@
          "silent" = silent mode
          "users" = list of users
          -->
+    <!-- Global Actions -->
     <string-array translatable="false" name="config_globalActionsList">
+        <item>power</item>
         <item>reboot</item>
-        <item>screenshot</item>
- </string-array>
+        <item>airplane</item>
+        <item>bugreport</item>
+        <item>silent</item>
+        <item>users</item>
+    </string-array>
 
     <!-- Screen brightness when dozing. -->
     <integer name="config_screenBrightnessDoze">17</integer>
