@@ -37,6 +37,8 @@ PRODUCT_PACKAGES += \
 LockClock \
 Layers \
 Layersbackup \
+Launcher3 \
+SimpleExplorer
 
 # Proprietary latinime lib needed for swyping
 PRODUCT_COPY_FILES += \
