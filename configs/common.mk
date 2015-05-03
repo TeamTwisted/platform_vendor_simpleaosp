@@ -38,7 +38,8 @@ LockClock \
 Layers \
 Layersbackup \
 Launcher3 \
-SimpleExplorer
+SimpleExplorer \
+AdAway
 
 # Proprietary latinime lib needed for swyping
 PRODUCT_COPY_FILES += \
