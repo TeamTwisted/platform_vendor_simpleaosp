@@ -30,6 +30,8 @@ PRODUCT_PACKAGE_OVERLAYS += vendor/twisted/overlays/common
 # Needed Packages
 PRODUCT_PACKAGES += \
 LockClock \
+Layers \
+Layersbackup \
 
 # Proprietary latinime lib needed for swyping
 PRODUCT_COPY_FILES += \
