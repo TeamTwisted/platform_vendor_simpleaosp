@@ -40,7 +40,8 @@ Layersbackup \
 Launcher3 \
 SimpleExplorer \
 AdAway \
-NovaLauncher
+NovaLauncher \
+AudioFx
 
 # Proprietary latinime lib needed for swyping
 PRODUCT_COPY_FILES += \
