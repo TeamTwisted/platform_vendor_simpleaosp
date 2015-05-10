@@ -40,7 +40,6 @@ Layersbackup \
 Launcher3 \
 SimpleExplorer \
 AdAway \
-NovaLauncher \
 AudioFx
 
 # Proprietary latinime lib needed for swyping
