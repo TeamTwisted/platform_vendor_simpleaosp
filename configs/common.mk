@@ -24,6 +24,11 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Common overlays
 PRODUCT_PACKAGE_OVERLAYS += vendor/twisted/overlays/common
 
+# Workaround for NovaLauncher zipalign fails
+PRODUCT_COPY_FILES += \
+    vendor/twisted/prebuilt/common/app/Nova.apk:system/app/Nova/Nova.apk \
+    vendor/twisted/prebuilt/common/lib/libgif.so:system/app/Nova/lib/arm/libgif.so
+
 #SuperSu
 PRODUCT_COPY_FILES += \
     vendor/twisted/prebuilt/common/UPDATE-SuperSU.zip:system/addon.d/UPDATE-SuperSU.zip \
@@ -34,7 +39,6 @@ PRODUCT_PACKAGES += \
 LockClock \
 Layers \
 Layersbackup \
-Launcher3 \
 SimpleExplorer \
 AdAway \
 KernelAdiutor
