@@ -45,7 +45,8 @@ Layersbackup \
 Launcher3 \
 SimpleExplorer \
 AdAway \
-AudioFx
+AudioFx \
+KernelAdiutor
 
 # Proprietary latinime lib needed for swyping
 PRODUCT_COPY_FILES += \
