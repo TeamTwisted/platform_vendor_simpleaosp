@@ -32,10 +32,15 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Common overlays
 PRODUCT_PACKAGE_OVERLAYS += vendor/twisted/overlays/common
 
-# Workaround for NovaLauncher zipalign fails
+# Nova Launcher
 PRODUCT_COPY_FILES += \
     vendor/twisted/prebuilt/common/app/Nova.apk:system/app/Nova/Nova.apk \
     vendor/twisted/prebuilt/common/lib/libgif.so:system/app/Nova/lib/arm/libgif.so
+
+# Titanium Backup
+PRODUCT_COPY_FILES += \
+    vendor/twisted/prebuilt/common/app/TitaniumBackup.apk:system/app/TitaniumBackup/TitaniumBackup.apk \
+    vendor/twisted/prebuilt/common/lib/libtitanium.so:system/app/TitaniumBackup/lib/arm/libtitanium.so
 
 #SuperSu
 PRODUCT_COPY_FILES += \
