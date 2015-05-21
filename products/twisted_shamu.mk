@@ -9,6 +9,6 @@ PRODUCT_NAME := twisted_shamu
 PRODUCT_BRAND := Google
 PRODUCT_MODEL := Nexus 6
 PRODUCT_MANUFACTURER := motorola
-PRODUCT_BUILD_PROP_OVERRIDES += PRODUCT_NAME=shamu BUILD_FINGERPRINT="google/shamu/shamu:5.0.1/LMY47V/1602158:user/release-keys" PRIVATE_BUILD_DESC="shamu-user 5.0.1 LMY47v 1602158 release-keys"
+PRODUCT_BUILD_PROP_OVERRIDES += PRODUCT_NAME=shamu BUILD_FINGERPRINT="google/shamu/shamu:5.1.1/LMY48B/1863243:user/release-keys" PRIVATE_BUILD_DESC="shamu-user 5.1.1 LMY48B 1863243 release-keys"
 
 
