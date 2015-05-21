@@ -27,7 +27,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.setupwizard.network_required=false \
     ro.setupwizard.gservices_delay=-1 \
     dalvik.vm.image-dex2oat-filter=everything \
-    dalvik.vm.dex2oat-filter=everything
+    dalvik.vm.dex2oat-filter=everything \
+    ro.sys.fw.bg_apps_limit=18
 
 # Common overlays
 PRODUCT_PACKAGE_OVERLAYS += vendor/twisted/overlays/common
