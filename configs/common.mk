@@ -73,3 +73,9 @@ PRODUCT_COPY_FILES += \
 
 # Squisher Location
 SQUISHER_SCRIPT := vendor/twisted/tools/squisher
+
+
+# Inherite sabermod vendor
+SM_VENDOR := vendor/sm
+include $(SM_VENDOR)/Main.mk
+
