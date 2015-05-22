@@ -37,7 +37,7 @@ Layersbackup \
 Launcher3 \
 SimpleExplorer \
 AdAway \
-NovaLauncher
+KernelAdiutor
 
 # Proprietary latinime lib needed for swyping
 PRODUCT_COPY_FILES += \
