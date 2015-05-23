@@ -79,3 +79,8 @@ SQUISHER_SCRIPT := vendor/twisted/tools/squisher
 SM_VENDOR := vendor/sm
 include $(SM_VENDOR)/Main.mk
 
+
+# Include chromium prebuilt if opted in
+ifeq ($(PRODUCT_PREBUILT_WEBVIEWCHROMIUM),yes)
+include prebuilts/chromium/$(TARGET_DEVICE)/chromium_prebuilt.mk
+endif
