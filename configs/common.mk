@@ -14,12 +14,20 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.error.receiver.system.apps=com.google.android.gms \
     ro.setupwizard.enterprise_mode=1 \
     keyguard.no_require_sim=true \
+    drm.service.enabled=true \
     ro.facelock.black_timeout=400 \
     ro.facelock.det_timeout=1500 \
     ro.facelock.rec_timeout=2500 \
     ro.facelock.lively_timeout=2500 \
     ro.facelock.est_max_time=600 \
-    ro.facelock.use_intro_anim=false
+    ro.facelock.use_intro_anim=false \
+    net.tethering.noprovisioning=true \
+    persist.sys.dun.override=0 \
+    ro.build.selinux=1 \
+    ro.setupwizard.network_required=false \
+    ro.setupwizard.gservices_delay=-1 \
+    dalvik.vm.image-dex2oat-filter=everything \
+    dalvik.vm.dex2oat-filter=everything
 
 # Common overlays
 PRODUCT_PACKAGE_OVERLAYS += vendor/twisted/overlays/common
