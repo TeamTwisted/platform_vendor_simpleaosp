@@ -56,6 +56,11 @@ SimpleExplorer \
 AdAway \
 KernelAdiutor
 
+# CM Hardware Abstraction Framework
+PRODUCT_PACKAGES += \
+    org.cyanogenmod.hardware \
+    org.cyanogenmod.hardware.xml
+
 # Proprietary latinime lib needed for swyping
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/lib/libjni_latinime.so:system/lib/libjni_latinime.so
