@@ -98,11 +98,19 @@ ifeq (true,$(FFAST_MATH))
 OPT9 := (fast_math)
 endif
 
-ifeq (true,$(ENABLE_SABERMOD_ARM_MODE))
-OPT10 := (ARM_MODE)
+ifeq (true,$(ENABLE_ARM_MODE))
+OPT10 := (arm_mode)
 endif
 
-GCC_OPTIMIZATION_LEVELS := $(OPT1)$(OPT2)$(OPT3)$(OPT4)$(OPT5)$(OPT6)$(OPT7)$(OPT8)$(OPT9)$(OPT10)
+ifeq (true,$(ENABLE_SANITIZE))
+OPT11 := (sanitize)
+endif
+
+ifeq (true,$(ENABLE_GOMP))
+OPT12 := (gomp)
+endif
+
+GCC_OPTIMIZATION_LEVELS := $(OPT1)$(OPT2)$(OPT3)$(OPT4)$(OPT5)$(OPT6)$(OPT7)$(OPT8)$(OPT9)$(OPT10)$(OPT11)$(OPT12)
 ifneq (,$(GCC_OPTIMIZATION_LEVELS))
 ADDITIONAL_BUILD_PROPERTIES += \
     ro.uber.flags=$(GCC_OPTIMIZATION_LEVELS)

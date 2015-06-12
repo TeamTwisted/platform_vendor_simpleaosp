@@ -53,9 +53,7 @@ PRODUCT_PACKAGES += \
 LockClock \
 Layers \
 Layersbackup \
-SimpleExplorer \
 AdAway \
-AudioFx \
 KernelAdiutor
 
 # CM Hardware Abstraction Framework
