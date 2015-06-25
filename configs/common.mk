@@ -56,6 +56,11 @@ Layersbackup \
 AdAway \
 KernelAdiutor
 
+# Screen recorder package and lib
+PRODUCT_PACKAGES += \
+    ScreenRecorder \
+    libscreenrecorder
+
 # CM Hardware Abstraction Framework
 PRODUCT_PACKAGES += \
     org.cyanogenmod.hardware \
