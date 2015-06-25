@@ -61,6 +61,10 @@ PRODUCT_PACKAGES += \
     ScreenRecorder \
     libscreenrecorder
 
+# Cyanogenmod Terminal app
+PRODUCT_PACKAGES += \
+    Terminal
+
 # CM Hardware Abstraction Framework
 PRODUCT_PACKAGES += \
     org.cyanogenmod.hardware \
