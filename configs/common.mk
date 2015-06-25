@@ -54,7 +54,8 @@ LockClock \
 Layers \
 Layersbackup \
 AdAway \
-KernelAdiutor
+KernelAdiutor \
+htop
 
 # Screen recorder package and lib
 PRODUCT_PACKAGES += \
