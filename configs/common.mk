@@ -55,6 +55,7 @@ Layers \
 Layersbackup \
 AdAway \
 KernelAdiutor \
+mkfs.exfat \
 htop
 
 # Screen recorder package and lib
