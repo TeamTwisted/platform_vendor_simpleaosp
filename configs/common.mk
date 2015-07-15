@@ -28,7 +28,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.setupwizard.gservices_delay=-1 \
     dalvik.vm.image-dex2oat-filter=everything \
     dalvik.vm.dex2oat-filter=everything \
-    ro.sys.fw.bg_apps_limit=18
+    ro.sys.fw.bg_apps_limit=18 \
+    ro.layers.noIcon=noIcon
 
 # Common overlays
 PRODUCT_PACKAGE_OVERLAYS += vendor/twisted/overlays/common
@@ -72,9 +73,9 @@ PRODUCT_PACKAGES += \
     org.cyanogenmod.hardware \
     org.cyanogenmod.hardware.xml
 
-# Proprietary latinime lib needed for swyping
+# Latin IME lib - gesture typing
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/lib/libjni_latinime.so:system/lib/libjni_latinime.so
+    vendor/twisted/prebuilt/common/lib/libjni_latinime.so:system/lib/libjni_latinime.so
 
 # Enable sip+voip on all targets
 PRODUCT_COPY_FILES += \
