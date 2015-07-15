@@ -75,7 +75,7 @@ PRODUCT_PACKAGES += \
 
 # Latin IME lib - gesture typing
 PRODUCT_COPY_FILES += \
-    vendor/twisted/prebuilt/common/lib/libjni_latinime.so:system/lib/libjni_latinime.so
+    vendor/twisted/prebuilts/common/system/lib/libjni_latinime.so:system/lib/libjni_latinime.so
 
 # Enable sip+voip on all targets
 PRODUCT_COPY_FILES += \
