@@ -49,6 +49,12 @@ PRODUCT_COPY_FILES += \
     vendor/twisted/prebuilt/common/UPDATE-SuperSU.zip:system/addon.d/UPDATE-SuperSU.zip \
     vendor/twisted/prebuilt/common/etc/init.d/99SuperSUDaemon:system/etc/init.d/99SuperSUDaemon
 
+# twisted-specific init file
+PRODUCT_COPY_FILES += \
+    vendor/twisted/prebuilt/common/etc/init.local.rc:root/init.twisted.rc \
+    vendor/twisted/prebuilt/common/etc/init.d/90userinit:system/etc/init.d/90userinit \
+    vendor/twisted/prebuilt/common/bin/sysinit:system/bin/sysinit
+
 # Needed Packages
 PRODUCT_PACKAGES += \
 LockClock \
