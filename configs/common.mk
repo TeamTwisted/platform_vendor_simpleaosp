@@ -61,6 +61,7 @@ LockClock \
 Layers \
 Layersbackup \
 AdAway \
+SlimOTA \
 KernelAdiutor \
 mkfs.exfat \
 htop
