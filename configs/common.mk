@@ -112,7 +112,7 @@ ifdef TWISTED_BUILD_EXTRA
 endif
 ifndef TWISTED_BUILD_TYPE
     TWISTED_BUILD_TYPE := OFFICIAL
-    TWISTED_POSTFIX := $(shell date +"%Y%m%d-%H%M")
+    TWISTED_POSTFIX := $(shell date +"%Y%m%d")
 endif
 
 # Include chromium prebuilt if opted in
