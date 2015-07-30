@@ -102,10 +102,35 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/media/bootanimation.zip:system/media/bootanimation.zip
 
-# Squisher Location
-SQUISHER_SCRIPT := vendor/twisted/tools/squisher
+# Versioning System
+PRODUCT_VERSION_MAJOR = 5.1.1
+PRODUCT_VERSION_MINOR = beta
+PRODUCT_VERSION_MAINTENANCE = 0.7
+ifdef TWISTED_BUILD_EXTRA
+    TWISTED_POSTFIX := -$(TWISTED_BUILD_EXTRA)
+endif
+ifndef TWISTED_BUILD_TYPE
+    TWISTED_BUILD_TYPE := OFFICIAL
+    TWISTED_POSTFIX := $(shell date +"%Y%m%d-%H%M")
+endif
 
 # Include chromium prebuilt if opted in
 ifeq ($(PRODUCT_PREBUILT_WEBVIEWCHROMIUM),yes)
 include prebuilts/chromium/$(TARGET_DEVICE)/chromium_prebuilt.mk
 endif
+
+# Set all versions
+TWISTED_VERSION := Twisted-$(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR).$(PRODUCT_VERSION_MAINTENANCE)-$(TWISTED_BUILD_TYPE)
+TWISTED_MOD_VERSION := Twisted-$(TWISTED_BUILD)-$(PRODUCT_VERSION_MAJOR)-$(TWISTED_POSTFIX)
+
+PRODUCT_PROPERTY_OVERRIDES += \
+    BUILD_DISPLAY_ID=$(BUILD_ID) \
+    twisted.ota.version=$(PRODUCT_VERSION_MAJOR)-$(TWISTED_POSTFIX) \
+    ro.twisted.version=$(TWISTED_VERSION) \
+    ro.modversion=$(TWISTED_MOD_VERSION) \
+    ro.twisted.buildtype=$(TWISTED_BUILD_TYPE)
+
+FINISHER_SCRIPT := vendor/twisted/tools/finisher
+SQUISHER_SCRIPT := vendor/twisted/tools/squisher
+CHANGELOG_SCRIPT := vendor/twisted/tools/changelog.sh
+
