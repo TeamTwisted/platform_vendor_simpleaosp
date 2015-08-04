@@ -62,6 +62,7 @@ Layers \
 Layersbackup \
 AdAway \
 SlimOTA \
+WallpaperPicker \
 KernelAdiutor \
 mkfs.exfat \
 htop
