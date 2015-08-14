@@ -65,7 +65,8 @@ SlimOTA \
 WallpaperPicker \
 KernelAdiutor \
 mkfs.exfat \
-htop
+htop \
+ViPER4Android
 
 # Screen recorder package and lib
 PRODUCT_PACKAGES += \
