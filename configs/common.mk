@@ -62,11 +62,9 @@ Layers \
 Layersbackup \
 AdAway \
 SlimOTA \
-WallpaperPicker \
 KernelAdiutor \
 mkfs.exfat \
-htop \
-ViPER4Android
+htop
 
 # Screen recorder package and lib
 PRODUCT_PACKAGES += \
