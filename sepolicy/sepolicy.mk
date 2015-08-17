@@ -9,6 +9,7 @@ BOARD_SEPOLICY_DIRS += \
 BOARD_SEPOLICY_UNION += \
 mediaserver.te \
 service_contexts \
+shell.te \
 sysinit.te \
 system.te \
 userinit.te\
