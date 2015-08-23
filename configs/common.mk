@@ -44,6 +44,11 @@ PRODUCT_COPY_FILES += \
     vendor/twisted/prebuilt/common/app/TitaniumBackup.apk:system/app/TitaniumBackup/TitaniumBackup.apk \
     vendor/twisted/prebuilt/common/lib/libtitanium.so:system/app/TitaniumBackup/lib/arm/libtitanium.so
 
+# Viper4Android
+PRODUCT_COPY_FILES += \
+    vendor/twisted/prebuilt/common/addon.d/91-v4a.sh:system/addon.d/91-v4a.sh \
+    vendor/twisted/prebuilt/common/priv-app/ViPER4Android_FX_A4.x/ViPER4Android_FX_A4.x.apk:system/priv-app/ViPER4Android_FX_A4/ViPER4Android_FX_A4.x.apk \
+
 #SuperSu
 PRODUCT_COPY_FILES += \
     vendor/twisted/prebuilt/common/UPDATE-SuperSU.zip:system/addon.d/UPDATE-SuperSU.zip \
