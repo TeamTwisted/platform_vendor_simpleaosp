@@ -55,6 +55,12 @@ PRODUCT_COPY_FILES += \
     vendor/twisted/prebuilt/common/etc/init.d/90userinit:system/etc/init.d/90userinit \
     vendor/twisted/prebuilt/common/bin/sysinit:system/bin/sysinit
 
+# Extra Files for SM -4.9 FireFox
+PRODUCT_COPY_FILES += \
+    vendor/twisted/prebuilts/system/lib/armeabi-v7a/libmozglue.so:system/lib/libmozglue.so \
+    vendor/twisted/prebuilts/system/lib/armeabi-v7a/libplugin-container.so:system/lib/libplugin-container.so \
+    vendor/twisted/prebuilts/system/lib/armeabi-v7a/libplugin-container-pie.so:system/lib/libplugin-container-pie.so
+
 # Needed Packages
 PRODUCT_PACKAGES += \
 LockClock \
@@ -64,7 +70,8 @@ AdAway \
 SlimOTA \
 KernelAdiutor \
 mkfs.exfat \
-htop
+htop \
+FireFox-arm-SM4.9
 
 # Screen recorder package and lib
 PRODUCT_PACKAGES += \
