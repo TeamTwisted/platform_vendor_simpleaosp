@@ -4,14 +4,12 @@ on init
     export ANDROID_CACHE /cache
     export TERMINFO /system/etc/terminfo
 
-#    start sysinit
-
     # Set up the BFQIO hierarchy
     chmod 0755 /sys/fs/cgroup
     mkdir /sys/fs/cgroup/bfqio 0755 root system
-    mount cgroup none /sys/fs/cgroup/bfqio bfqio
-    write /sys/fs/cgroup/bfqio/bfqio.ioprio_class 2
-    write /sys/fs/cgroup/bfqio/bfqio.ioprio 1
+    mount cgroup none /sys/fs/cgroup/bfqio bfqio,xattr
+    write /sys/fs/cgroup/bfqio/bfqio.ioprio_class 0
+    write /sys/fs/cgroup/bfqio/bfqio.ioprio 0
     write /sys/fs/cgroup/bfqio/bfqio.weight 1000
     chown root system /sys/fs/cgroup/bfqio/tasks
     chmod 0666 /sys/fs/cgroup/bfqio/tasks
@@ -19,20 +17,20 @@ on init
     # Realtime class
     mkdir /sys/fs/cgroup/bfqio/rt 0755 root system
     write /sys/fs/cgroup/bfqio/rt/bfqio.ioprio_class 1
-    write /sys/fs/cgroup/bfqio/rt/bfqio.ioprio 7
+    write /sys/fs/cgroup/bfqio/rt/bfqio.ioprio 4
     write /sys/fs/cgroup/bfqio/rt/bfqio.weight 1000
-    chown root system /sys/fs/cgroup/bfqio/rt/tasks
-    chmod 0666 /sys/fs/cgroup/bfqio/rt/tasks
+    chown system media /sys/fs/cgroup/bfqio/rt/tasks
+    chmod 0664 /sys/fs/cgroup/bfqio/rt/tasks
 
-    # High priority < -2
-    mkdir /sys/fs/cgroup/bfqio/hipri 0755 root system
-    write /sys/fs/cgroup/bfqio/hipri/bfqio.ioprio_class 2
-    write /sys/fs/cgroup/bfqio/hipri/bfqio.ioprio 0
-    write /sys/fs/cgroup/bfqio/hipri/bfqio.weight 1000
-    chown root system /sys/fs/cgroup/bfqio/hipri/tasks
-    chmod 0666 /sys/fs/cgroup/bfqio/hipri/tasks
+    # UI class
+    mkdir /sys/fs/cgroup/bfqio/ui 0755 root system
+    write /sys/fs/cgroup/bfqio/ui/bfqio.ioprio_class 1
+    write /sys/fs/cgroup/bfqio/ui/bfqio.ioprio 7
+    write /sys/fs/cgroup/bfqio/ui/bfqio.weight 1000
+    chown system media /sys/fs/cgroup/bfqio/ui/tasks
+    chmod 0664 /sys/fs/cgroup/bfqio/ui/tasks
 
-    # Background >= 10
+    # Background class
     mkdir /sys/fs/cgroup/bfqio/bg 0755 root system
     write /sys/fs/cgroup/bfqio/bg/bfqio.ioprio_class 2
     write /sys/fs/cgroup/bfqio/bg/bfqio.ioprio 7
@@ -40,16 +38,41 @@ on init
     chown root system /sys/fs/cgroup/bfqio/bg/tasks
     chmod 0666 /sys/fs/cgroup/bfqio/bg/tasks
 
-    # Idle >= 18
+    # Idle
     mkdir /sys/fs/cgroup/bfqio/idle 0755 root system
     write /sys/fs/cgroup/bfqio/idle/bfqio.ioprio_class 3
-    write /sys/fs/cgroup/bfqio/idle/bfqio.ioprio 3
+    write /sys/fs/cgroup/bfqio/idle/bfqio.ioprio 0
     write /sys/fs/cgroup/bfqio/idle/bfqio.weight 1000
     chown root system /sys/fs/cgroup/bfqio/idle/tasks
     chmod 0666 /sys/fs/cgroup/bfqio/idle/tasks
 
+    # Run sysinit
+    start sysinit
+
 on property:sys.boot_completed=1
     start userinit
+
+    # Define TCP delayed ack settings for WiFi & LTE
+    chown system system /sys/kernel/ipv4/tcp_delack_seg
+    chown system system /sys/kernel/ipv4/tcp_use_userconfig
+    setprop net.tcp.delack.default     1
+    setprop net.tcp.delack.wifi        20
+    setprop net.tcp.delack.lte         8
+    setprop net.tcp.usercfg.default    0
+    setprop net.tcp.usercfg.wifi       1
+    setprop net.tcp.usercfg.lte        1
+
+    # Persistent properties (only created if persist exists)
+    mkdir /persist/properties 0770 system system
+
+# adb over network
+on property:service.adb.tcp.port=5555
+    stop adbd
+    start adbd
+on property:service.adb.tcp.port=-1
+    stop adbd
+    start adbd
+
 
 service post-init /sbin/post-boot.sh
     class core
@@ -59,8 +82,8 @@ service post-init /sbin/post-boot.sh
 # sysinit (/system/etc/init.d)
 service sysinit /system/bin/sysinit
     user root
-    group root
     oneshot
+    disabled
 
 # runparts (/system/etc/init.d)
 service userinit /system/xbin/busybox run-parts /system/etc/init.d
