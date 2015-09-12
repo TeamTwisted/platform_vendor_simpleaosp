@@ -71,7 +71,8 @@ SlimOTA \
 KernelAdiutor \
 mkfs.exfat \
 htop \
-FireFox-arm-SM4.9
+FireFox-arm-SM4.9 \
+busybox
 
 # Screen recorder package and lib
 PRODUCT_PACKAGES += \
