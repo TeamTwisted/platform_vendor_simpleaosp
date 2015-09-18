@@ -4,42 +4,6 @@ on init
     export ANDROID_CACHE /cache
     export TERMINFO /system/etc/terminfo
 
-    # Run sysinit
-    start sysinit
-
-on property:sys.boot_completed=1
-    start userinit
-
-# sysinit (/system/etc/init.d)
-service sysinit /system/bin/sysinit
-    user root
-    oneshot
-    disabled
-
-# runparts (/system/etc/init.d)
-service userinit /system/xbin/busybox run-parts /system/etc/init.d
-	oneshot
-	class late_start
-	user root
-	group root
-
-# adb over network
-on property:service.adb.tcp.port=5555
-    stop adbd
-    start adbd
-
-on property:service.adb.tcp.port=-1
-    stop adbd
-    start adbd
-
-# Set slice_idle to 0 for CFQ
-on property:sys.io.scheduler=cfq
-    write /sys/block/mmcblk0/queue/iosched/slice_idle 0
-
-# For BFQ, set slice_idle and create the bfqio cgroup
-on property:sys.io.scheduler=bfq
-    write /sys/block/mmcblk0/queue/iosched/slice_idle 0
-
     # Set up the BFQIO hierarchy
     chmod 0755 /sys/fs/cgroup
     mkdir /sys/fs/cgroup/bfqio 0755 root system
@@ -97,4 +61,47 @@ on property:sys.io.scheduler=bfq
     write /sys/fs/cgroup/bfqio/idle/bfqio.weight 1000
     chown root system /sys/fs/cgroup/bfqio/idle/tasks
     chmod 0666 /sys/fs/cgroup/bfqio/idle/tasks
+
+    # Run sysinit
+    start sysinit
+
+    # LiveDisplay sysfs
+    chown system system /sys/devices/virtual/graphics/fb0/aco
+    chmod 0660 /sys/devices/virtual/graphics/fb0/aco
+    chown system system /sys/devices/virtual/graphics/fb0/cabc
+    chmod 0660 /sys/devices/virtual/graphics/fb0/cabc
+    chown system system /sys/devices/virtual/graphics/fb0/rgb
+    chmod 0660 /sys/devices/virtual/graphics/fb0/rgb
+    chown system system /sys/devices/virtual/graphics/fb0/sre
+    chmod 0660 /sys/devices/virtual/graphics/fb0/sre
+
+# sysinit (/system/etc/init.d)
+service sysinit /system/bin/sysinit
+    user root
+    oneshot
+    disabled
+
+# adb over network
+on property:service.adb.tcp.port=5555
+    stop adbd
+    start adbd
+
+on property:service.adb.tcp.port=-1
+    stop adbd
+    start adbd
+
+# Configure IO scheduler
+on property:sys.io.scheduler=*
+    write /sys/block/mmcblk0/queue/scheduler ${sys.io.scheduler}
+
+on property:persist.sys.io.scheduler=*
+    setprop sys.io.scheduler ${persist.sys.io.scheduler}
+
+# Set slice_idle to 0 for CFQ
+on property:sys.io.scheduler=cfq
+    write /sys/block/mmcblk0/queue/iosched/slice_idle 0
+
+# Set slice_idle to 0 for BFQ
+on property:sys.io.scheduler=bfq
+    write /sys/block/mmcblk0/queue/iosched/slice_idle 0
 
