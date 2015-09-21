@@ -13,6 +13,7 @@ service_contexts \
 shell.te \
 sysinit.te \
 system.te \
+system_app.te \
 system_server.te \
 userinit.te\
 file_contexts 
