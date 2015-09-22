@@ -68,7 +68,7 @@ htop \
 Browser \
 busybox \
 Camera2 \
-MMS
+Mms
 
 # Screen recorder package and lib
 PRODUCT_PACKAGES += \
