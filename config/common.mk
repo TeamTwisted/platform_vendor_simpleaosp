@@ -56,7 +56,6 @@ PRODUCT_PACKAGES += \
     Launcher3 \
     AdAway \
     Terminal \
-    Busybox \
     KernelAdiutor \
     LayersManager \
     LMT \
@@ -65,11 +64,6 @@ PRODUCT_PACKAGES += \
 # APN list
 PRODUCT_COPY_FILES += \
     vendor/twisted/prebuilt/etc/apns-conf.xml:system/etc/apns-conf.xml
-
-# SuperSU
-PRODUCT_COPY_FILES += \
-    vendor/twisted/prebuilt/etc/UPDATE-SuperSU.zip:system/addon.d/UPDATE-SuperSU.zip \
-    vendor/twisted/prebuilt/etc/init.d/99SuperSUDaemon:system/etc/init.d/99SuperSUDaemon
 
 # init.d script support
 PRODUCT_COPY_FILES += \
